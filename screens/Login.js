@@ -1,39 +1,38 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Text, View, ScrollView, Image, Button, TextInput } from "react-native";
-import { RectButton, CircleButton, ButtonLogin } from "../components/Button";
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { useNavigation } from "@react-navigation/native";
+import { ButtonLogin, InputText } from "../components/Component";
 
 const Login = () => {
-    const [state, setState] = useState({
-        username: "",
-        password: "",
-      });
-      const [status, setStatus] = useState({
-        hasil: "false"
-      });
+  const [state, setState] = useState({
+    username: "",
+    password: "",
+  });
+  const [status, setStatus] = useState({
+    hasil: "false",
+  });
 
   const formsChange = (event) => {
     const { text } = event;
     let processedData = text;
     setState({
-      username : processedData
-    })
- }
+      username: processedData,
+    });
+  };
 
- const submitForms = () => {
-    if(state.username === "Ryuza"){
-        navigation.navigate("Home")
-    }else{
-        alert("User Not Found")
+  const submitForms = () => {
+    if (state.username === "Ryuza") {
+      navigation.navigate("Home");
+    } else {
+      alert("User Not Found");
     }
     // let data = this.state.teks;
     // this.setState({
     //   submitteks : data
     // })
- }
+  };
 
- const text = status.hasil
   const navigation = useNavigation();
   return (
     <View
@@ -48,38 +47,30 @@ const Login = () => {
         />
       </View>
       <View style={{ padding: 20 }}>
-        <View
-          style={{
-            width: "100%",
-            borderRadius: SIZES.font,
-            backgroundColor: COLORS.gray,
-            flexDirection: "row",
-            alignItems: "center",
-            paddingHorizontal: SIZES.font,
-            paddingVertical: SIZES.small - 2,
-          }}
-        >
-          <TextInput
-            placeholder="Username"
-            style={{ flex: 1}}
-            onChangeText={text => formsChange({ text })}
-            value={state.teks}
-          />
-        </View>
-        <View
-          style={{
-            marginTop: 10,
-            width: "100%",
-            borderRadius: SIZES.font,
-            backgroundColor: COLORS.gray,
-            flexDirection: "row",
-            alignItems: "center",
-            paddingHorizontal: SIZES.font,
-            paddingVertical: SIZES.small - 2,
-          }}
-        >
-          <TextInput placeholder="Password" secureTextEntry={true} style={{ flex: 1 }} />
-        </View>
+        <InputText
+          width="100%"
+          borderRadius={SIZES.font}
+          backgroundColor={COLORS.gray}
+          flexDirection="row"
+          alignItems="center"
+          paddingHorizontal={SIZES.font}
+          paddingVertical={SIZES.small - 2}
+          text="Username"
+          onChangeText={(text) => formsChange({ text })}
+          value={state.teks}
+        />
+        <InputText
+          width="100%"
+          borderRadius={SIZES.font}
+          backgroundColor={COLORS.gray}
+          flexDirection="row"
+          alignItems="center"
+          marginTop={10}
+          paddingHorizontal={SIZES.font}
+          paddingVertical={SIZES.small - 2}
+          text="Password"
+          password={true}
+        />
       </View>
 
       <View style={{ padding: 20 }}>

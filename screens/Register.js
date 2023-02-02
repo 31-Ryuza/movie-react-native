@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, ScrollView, Image, Button, TextInput } from "react-native";
-import { RectButton, CircleButton, ButtonLogin } from "../components/Button";
+import { ButtonLogin, InputText } from "../components/Component";
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
@@ -19,47 +19,41 @@ const Login = () => {
         />
       </View>
       <View style={{ padding: 20 }}>
-        <View
-          style={{
-            width: "100%",
-            borderRadius: SIZES.font,
-            backgroundColor: COLORS.gray,
-            flexDirection: "row",
-            alignItems: "center",
-            paddingHorizontal: SIZES.font,
-            paddingVertical: SIZES.small - 2,
-          }}
-        >
-          <TextInput placeholder="Email" style={{ flex: 1 }} />
-        </View>
-        <View
-          style={{
-            marginTop:10,
-            width: "100%",
-            borderRadius: SIZES.font,
-            backgroundColor: COLORS.gray,
-            flexDirection: "row",
-            alignItems: "center",
-            paddingHorizontal: SIZES.font,
-            paddingVertical: SIZES.small - 2,
-          }}
-        >
-          <TextInput placeholder="No HP" style={{ flex: 1 }} />
-        </View>
-        <View
-          style={{
-            marginTop: 10,
-            width: "100%",
-            borderRadius: SIZES.font,
-            backgroundColor: COLORS.gray,
-            flexDirection: "row",
-            alignItems: "center",
-            paddingHorizontal: SIZES.font,
-            paddingVertical: SIZES.small - 2,
-          }}
-        >
-          <TextInput placeholder="Password" style={{ flex: 1 }} />
-        </View>
+      <InputText
+          width="100%"
+          borderRadius={SIZES.font}
+          backgroundColor={COLORS.gray}
+          flexDirection="row"
+          alignItems="center"
+          marginTop={10}
+          paddingHorizontal={SIZES.font}
+          paddingVertical={SIZES.small - 2}
+          text="Email"
+        />
+        <InputText
+          width="100%"
+          borderRadius={SIZES.font}
+          backgroundColor={COLORS.gray}
+          flexDirection="row"
+          alignItems="center"
+          marginTop={10}
+          paddingHorizontal={SIZES.font}
+          paddingVertical={SIZES.small - 2}
+          text="No Hp"
+          password={true}
+        />
+        <InputText
+          width="100%"
+          borderRadius={SIZES.font}
+          backgroundColor={COLORS.gray}
+          flexDirection="row"
+          alignItems="center"
+          marginTop={10}
+          paddingHorizontal={SIZES.font}
+          paddingVertical={SIZES.small - 2}
+          text="Password"
+          password={true}
+        />
       </View>
 
       <View style={{ padding: 20 }}>

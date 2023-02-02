@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, Text, Image } from "react-native";
+import { TouchableOpacity, Text, Image, View, TextInput } from "react-native";
 
 import { COLORS, SIZES, FONTS, SHADOWS } from "../constants";
 
@@ -54,7 +54,13 @@ export const RectButton = ({ minWidth, fontSize, handlePress, ...props }) => {
   );
 };
 
-export const ButtonLogin = ({text, minWidth, fontSize, handlePress, ...props }) => {
+export const ButtonLogin = ({
+  text,
+  minWidth,
+  fontSize,
+  handlePress,
+  ...props
+}) => {
   return (
     <TouchableOpacity
       style={{
@@ -77,5 +83,25 @@ export const ButtonLogin = ({text, minWidth, fontSize, handlePress, ...props }) 
         {text}
       </Text>
     </TouchableOpacity>
+  );
+};
+
+export const InputText = ({
+  text,
+  password,
+  onChangeText,
+  value,
+  ...props
+}) => {
+  return (
+    <View style={{ ...props }}>
+      <TextInput
+        placeholder={text}
+        secureTextEntry={password}
+        onChangeText={onChangeText}
+        value={value}
+        style={{ width: props.width }}
+      />
+    </View>
   );
 };

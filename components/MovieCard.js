@@ -4,7 +4,7 @@ import { View, Image } from "react-native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { SubInfo, Rilis, NFTTitle } from "./SubInfo";
-import { RectButton, CircleButton } from "./Button";
+import { RectButton, CircleButton } from "./Component";
 
 const MovieCard = ({ data }) => {
   const navigation = useNavigation();
